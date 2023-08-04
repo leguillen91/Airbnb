@@ -1,5 +1,6 @@
 const express = require('express');
 const sql = require('mssql');
+const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
 const puerto=3001;
@@ -20,5 +21,32 @@ app.get('/', (req, res) => {
 app.listen(puerto, () => {
 	console.log(`Servidor Levantado en https://localhost:${puerto}`);
 });
+
+
+
+async function conector() {
+    try {
+    await sql.connect(BD);
+    console.log('Conexión exitosa a SQL Server');
+    // Consulta SQL
+      const query = 'SELECT * FROM PACIENTE';
+  
+      // Ejecutar la consulta
+     const result = await sql.query(query);
+  
+      // Imprimir los resultados
+      console.log(result.recordset);
+    } catch (error) {
+    console.error('Error al conectar a SQL Server:', error);
+    }
+}
+
+conector();
+
+
+
+
+
+
 
 
