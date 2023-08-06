@@ -18,3 +18,12 @@ options: {
 
 
 module.exports=conexionBD;
+
+// ----------------------Comentarios--------------
+// --------Luis---------------
+// sql server = DESKTOP-F5IB5MK
+// user = luis
+// password = 12345
+
+// ----------Levi--------------
+// sql server = DESKTOP-Q2JE6U6
