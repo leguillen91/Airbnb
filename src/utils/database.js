@@ -5,7 +5,7 @@ const conexionBD={
 user:'luis',
 password:'12345',
 server:'DESKTOP-F5IB5MK',
-database:'PACIENTES',
+database:'airbnb',
 options: {
     //encrypt: true,
     trustServerCertificate: true
@@ -27,3 +27,5 @@ module.exports=conexionBD;
 
 // ----------Levi--------------
 // sql server = DESKTOP-Q2JE6U6
+// user = jonathan
+// password = 12345
