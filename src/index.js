@@ -3,6 +3,7 @@ const sql = require('mssql');
 const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
+const usuariosRaouter = require('./routes/usuarios.routes');
 const puerto=3001;
 
 
@@ -23,28 +24,33 @@ app.listen(puerto, () => {
 });
 
 
+app.use('/usuarios', usuariosRaouter);
+
+
 
 async function conector() {
     try {
-    await sql.connect(BD);
+    const pool = await sql.connect(BD);
     console.log('Conexión exitosa a SQL Server');
     // Consulta SQL
-      const query = 'SELECT * FROM PACIENTE';
+      // const query = 'SELECT * FROM usuarios';
   
       // Ejecutar la consulta
-     const result = await sql.query(query);
+    //  const result = await sql.query(query);
   
       // Imprimir los resultados
-      console.log(result.recordset);
+      // console.log(result.recordset);
+      return pool;
     } catch (error) {
     console.error('Error al conectar a SQL Server:', error);
     }
 }
 
-conector();
+// conector();
 
+exports.conector = conector;
 
-
+// module.exports = conector
 
 
 

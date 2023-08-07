@@ -2,9 +2,9 @@
 
 const conexionBD={
 
-user:'luis',
+user:'jonathan',
 password:'12345',
-server:'DESKTOP-F5IB5MK',
+server:'DESKTOP-Q2JE6U6',
 database:'airbnb',
 options: {
     //encrypt: true,
