@@ -2,10 +2,10 @@
 
 const conexionBD={
 
-user:'wei',
-password:'123',
-server:'localhost',
-database:'prueba',
+user:'jonathan',
+password:'12345',
+server:'DESKTOP-Q2JE6U6',
+database:'airbnb',
 options: {
     //encrypt: true,
     trustServerCertificate: true
@@ -13,7 +13,7 @@ options: {
 },
 
 
-};
+}; 
 
 
 

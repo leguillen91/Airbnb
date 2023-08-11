@@ -13,14 +13,14 @@ exports.obtenerUsuarios = obtenerUsuarios;
 const insertarUsuario = async (req,res) =>{
     const {nombre, apellido, correo, contrasenia}=req.body;
     const pool = await getConection.conector();
-    await pool
+    const result = await pool
     .request()
     .input('nombre', TYPES.VarChar, nombre)
     .input('apellido', TYPES.VarChar, apellido)
     .input('correo', TYPES.VarChar, correo)
     .input('contrasenia', TYPES.VarChar, contrasenia)
     .query('INSERT INTO usuarios (nombre, apellido, correo, contrasenia) VALUES (@nombre, @apellido, @correo, @contrasenia)');
-   // console.log('Usuario creado exitosamente');
+//    console.log('Usuario creado exitosamente');
    res.send('usuario creado');
 }
 exports.insertarUsuario = insertarUsuario;
