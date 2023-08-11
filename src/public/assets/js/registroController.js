@@ -16,7 +16,7 @@ const obtenerValores = () => {
 }
 
 const crearCliente = async (nombre, apellido, correo, contraseña) => {
-	const respuesta = await fetch(`http://localhost:2023/clientes`,
+	const respuesta = await fetch(`http://localhost:3001/usuarios`,
 		{
 			method: "post",
 			headers: {
