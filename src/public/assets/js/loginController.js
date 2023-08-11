@@ -29,8 +29,8 @@ const compararUsuarios=()=>{
             // console.log('usuario aceptado');
             localStorage.setItem("cliente", element._id);
             window.location.href = "menu.html";
-            console.log('usuario aceptado');
+            // console.log('usuario aceptado');
         }
     });
-    console.log(usuarios[0].correo)
+    // console.log(usuarios[0].correo)
 }

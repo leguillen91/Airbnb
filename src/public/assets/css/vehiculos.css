@@ -67,42 +67,7 @@ main{
     padding-bottom: 30px;
 }
 
-.casa{
-    padding-bottom: 10px;
-}
-
-.card-img-top{
-    border-top-left-radius: 4%;
-    border-top-right-radius: 4%;
-}
-
-.card{
-    border-radius: 4%;
-}
-
-.p-card{
-    margin: 0;
-}
-
-.tarjeta{
-    width: 100%;
-    height: 178px;
-    padding:12px;
-}
-
-.info{
-    display: flex;
-    align-items: center;
-}
-
-.info i{
-    margin-right: 7px;
-}
-
-/* .puntuacion{
-    text-align: right;
-} */
-
-.boton{
-    text-align: right;
+.imgCar{
+    width: 259px;
+    height: 183px;
 }
