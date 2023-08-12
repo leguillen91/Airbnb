@@ -1,7 +1,7 @@
 
 
 const conexionBD={
-
+    
 user:'wei',
 password:'123',
 server:'localhost',

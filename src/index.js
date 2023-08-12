@@ -3,8 +3,13 @@ const sql = require('mssql');
 const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
+<<<<<<< HEAD
 const personasRaouter = require('./routes/personas.routes');
 const vehiculosRouters =require('./routes/vehiculos.routers');
+=======
+const personasRouters = require('./routes/personas.routes');
+const propiedadesRouters=require('./routes/propiedades.routes');
+>>>>>>> 9c30d8aa5dc6334f9622601a414a4eb8eefc53c8
 const puerto=3001;
 
 
@@ -25,8 +30,10 @@ app.listen(puerto, () => {
 });
 
 
+
 app.use('/personas', personasRaouter);
 app.use('/vehiculos', vehiculosRouters);
+app.use('/propiedad', propiedadesRouters);
 
 
 
