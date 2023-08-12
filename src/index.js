@@ -4,6 +4,7 @@ const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
 const personasRaouter = require('./routes/personas.routes');
+const vehiculosRouters =require('./routes/vehiculos.routers');
 const puerto=3001;
 
 
@@ -25,6 +26,7 @@ app.listen(puerto, () => {
 
 
 app.use('/personas', personasRaouter);
+app.use('/vehiculos', vehiculosRouters);
 
 
 
