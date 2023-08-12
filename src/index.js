@@ -46,7 +46,7 @@ async function conector() {
     }
 }
 
-// conector();
+conector();
 
 exports.conector = conector;
 
