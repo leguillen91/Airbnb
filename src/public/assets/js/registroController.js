@@ -2,21 +2,32 @@ let usuarios2 = [];
 
 
 const obtenerValores = () => {
-    let nombre 			=   document.querySelector('#nombre').value;
-    let apellido 		=   document.querySelector('#apellido').value;
-    let correo 			=   document.querySelector('#correo').value;
-    let contrasenia 	=   document.querySelector('#password').value;
+    let dni 				=   document.querySelector('#dni').value;
+    let primerNombre 		=   document.querySelector('#primerNombre').value;
+	let segundoNombre 		=   document.querySelector('#segundoNombre').value;
+    let primerApellido 		=   document.querySelector('#primerApellido').value;
+	let segundoApellido 	=   document.querySelector('#segundoApellido').value;
+    let edad 				=   document.querySelector('#edad').value;
+	let fechaNacimiento 	=   document.querySelector('#fechaNacimiento').value;
+	let rtn 				=   document.querySelector('#rtn').value;
+	let correo 				=   document.querySelector('#correo').value;
+	let contraseña 			=   document.querySelector('#password').value;
     // console.log(document.querySelector('#nombre').value);
-    if ((nombre != "")&&(apellido != "")&&(correo != "")&&(contrasenia != "")){
-        crearUsuario(nombre, apellido, correo, contrasenia);
+    if ((dni != "")&&(primerNombre != "")&&(primerApellido != "")&&(edad != "")){
+        crearPersona(dni, primerNombre, segundoNombre, primerApellido, segundoApellido,
+			edad, fechaNacimiento, rtn, correo, contraseña);
+
+			// crearTelefono(telefono)
         // window.location.href = "restaurantes2.html";
     }else{
         console.log('Uno de los datos no ha sido llenado');
     }
 }
 
-const crearUsuario = async (nombre, apellido, correo, contrasenia) => {
-	const respuesta = await fetch(`http://localhost:3001/usuarios`,
+const crearPersona = async (dni, primerNombre, segundoNombre, 
+	primerApellido, segundoApellido, edad,
+	fechaNacimiento, rtn, correo, contraseña) => {
+	const respuesta = await fetch(`http://localhost:3001/personas`,
 		{
 			method: "post",
 			headers: {
@@ -24,24 +35,44 @@ const crearUsuario = async (nombre, apellido, correo, contrasenia) => {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				nombre: nombre,
-				apellido: apellido,
-				correo: correo,
-                contrasenia: contrasenia 
+				dni: dni,
+				primerNombre: primerNombre,
+				segundoNombre: segundoNombre,
+				primerApellido: primerApellido,
+				segundoApellido: segundoApellido,
+                edad: edad,
+				fechaNacimiento: fechaNacimiento,
+				rtn: rtn
 			}),
 		}
 	);
+	crearUsuario(dni, correo, contraseña);
 	// console.log('usuario insertado exitosa mente');
 	// const resJSON = await respuesta.json();
 	// console.log('Respuesta de agregar un cliente',resJSON);
 	console.log('usuario insertado exitosa mente');
-	obtenerUsuarios3();
+	// obtenerUsuarios3();
 };
 
-
+const crearUsuario = async (dni, correo, contraseña) =>{
+	const respuesta = await fetch(`http://localhost:3001/personas/usuarios`,
+		{
+			method: "post",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				dni: dni,
+				email: correo,
+				contraseña: contraseña
+			}),
+		}
+	);
+}
 
 const obtenerUsuarios3 = async () => {
-	const respuesta = await fetch("http://localhost:3001/usuarios", {
+	const respuesta = await fetch("http://localhost:3001/personas", {
 		method: "get",
 	});
 	usuarios2 = await respuesta.json();
