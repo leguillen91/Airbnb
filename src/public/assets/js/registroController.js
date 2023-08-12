@@ -18,7 +18,7 @@ const obtenerValores = () => {
 			edad, fechaNacimiento, rtn, correo, contraseña);
 
 			// crearTelefono(telefono)
-        // window.location.href = "restaurantes2.html";
+        // window.location.href = "menu.html";
     }else{
         console.log('Uno de los datos no ha sido llenado');
     }
@@ -51,7 +51,7 @@ const crearPersona = async (dni, primerNombre, segundoNombre,
 	// const resJSON = await respuesta.json();
 	// console.log('Respuesta de agregar un cliente',resJSON);
 	console.log('usuario insertado exitosa mente');
-	// obtenerUsuarios3();
+	
 };
 
 const crearUsuario = async (dni, correo, contraseña) =>{
@@ -69,6 +69,8 @@ const crearUsuario = async (dni, correo, contraseña) =>{
 			}),
 		}
 	);
+	window.location.href = "menu.html";
+	// obtenerUsuarios3();
 }
 
 const obtenerUsuarios3 = async () => {
@@ -83,10 +85,10 @@ const obtenerUsuarios3 = async () => {
 
 const comparar=()=>{
 	usuarios2.forEach(element => {
-        if((element.correo == document.querySelector('#correo').value)&&(element.contraseña == document.querySelector('#password').value)){
+        if((element.mail == document.querySelector('#correo').value)&&(element.contraseña == document.querySelector('#password').value)){
             // console.log('usuario aceptado');
-            localStorage.setItem("usuario", element._id);
-            // window.location.href = "restaurantes2.html";
+            localStorage.setItem("usuario", element.id);
+            // window.location.href = "menu.html";
             // console.log('usuario aceptado');
         }
     });
