@@ -3,7 +3,8 @@ const sql = require('mssql');
 const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
-const personasRaouter = require('./routes/personas.routes');
+const personasRouters = require('./routes/personas.routes');
+const propiedadesRouters=require('./routes/propiedades.routes');
 const puerto=3001;
 
 
@@ -24,7 +25,8 @@ app.listen(puerto, () => {
 });
 
 
-app.use('/personas', personasRaouter);
+app.use('/personas', personasRouters);
+app.use('/propiedad', propiedadesRouters);
 
 
 

@@ -2,7 +2,7 @@
 
 const conexionBD={
 
-user:'jonathan',
+user:'luis',
 password:'12345',
 server:'localhost',
 database:'AIRBNB',
