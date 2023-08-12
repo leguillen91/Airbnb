@@ -32,25 +32,11 @@ const insertarPersona = async (req,res) =>{
     .input('fechaNacimiento', TYPES.Date, fechaNacimiento)
     .input('rtn', TYPES.VarChar, rtn)
     .query(`INSERT INTO persona (
-        dni, 
-        primerNombre, 
-        segundoNombre, 
-        primerApellido,
-        segundoApellido,
-        edad,
-        fechaNacimiento,
-        rtn
-        ) 
+        dni, primerNombre, segundoNombre, primerApellido, segundoApellido,
+        edad, fechaNacimiento, rtn) 
     VALUES (
-        @dni,
-        @primerNombre,
-        @segundoNombre,
-        @primerApellido,
-        @segundoApellido,
-        @edad,
-        @fechaNacimiento,
-        @rtn
-        )`
+        @dni, @primerNombre, @segundoNombre, @primerApellido, @segundoApellido,
+        @edad, @fechaNacimiento, @rtn)`
         );
 //    console.log('Usuario creado exitosamente');
    res.send('usuario creado');
@@ -67,7 +53,7 @@ const insertarUsuario = async (req,res) =>{
     .input('dni', TYPES.VarChar, dni)
     .input('email', TYPES.VarChar, email)
     .input('contraseña', TYPES.VarChar, contraseña)
-    .input('idRol', TYPES.Int, 2)
+    .input('idRol', TYPES.Int, 3)
     .query(`INSERT INTO usuario(
         email, contraseña, dni, idRol
     )
