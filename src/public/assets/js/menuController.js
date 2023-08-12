@@ -29,7 +29,7 @@ obtenerPropiedades();
           <div class="tarjeta" class="card-body">
             <div class="info">
                 <i class="fa-solid fa-location-dot"></i>
-                <h5 class="card-title">Tegucigalpa, Honduras</h5>
+                <h5 class="card-title">${propiedades[i].city}</h5>
             </div>
             <div class="info">
                 <i class="fa-solid fa-money-bill"></i>
@@ -61,3 +61,31 @@ obtenerPropiedades();
     }
 
 }
+
+
+const renderizaVehiculosModal= () =>{  
+
+    document.getElementById("exampleModal1").innerHTML= "";
+    for( i=0; i<vehiculos.length ;i++){
+        document.getElementById("exampleModal1").innerHTML += 
+        `
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="assets/img/casa.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="reservarVehiculos()">alquilar Vehiculo</button>
+          </div>
+        </div>
+   
+        `
+
+    }
+
+}
+renderizaVehiculosModal();
