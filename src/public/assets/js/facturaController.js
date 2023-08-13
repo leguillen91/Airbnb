@@ -4,16 +4,6 @@ let idPropiedadFactura = localStorage.getItem("propiedad");
 let hhh=  JSON.parse(idPropiedadFactura);
 console.log(hhh);
 
-const obtenerPropiedades = async () => {
-	const respuesta = await fetch("http://localhost:3001/propiedad", {
-		method: "get",
-	});
-	propiedades = await respuesta.json();
-	console.log("propiedades", propiedades[1]);
-	//renderizarPropiedades();
-   
-};
-obtenerPropiedades();
 
 const renderizaTargetaFactura= () =>{  
     document.getElementById("Factura").innerHTML= "";
