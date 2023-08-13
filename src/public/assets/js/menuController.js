@@ -12,6 +12,7 @@ const obtenerPropiedades = async () => {
 	propiedades = await respuesta.json();
 	console.log("propiedades", propiedades);
 	renderizarPropiedades();
+    renderizaCasasModal();
 };
 
 obtenerPropiedades();
@@ -48,7 +49,7 @@ obtenerPropiedades();
             </div>
             <div class="boton">
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button value="${i}"  id="idmod" type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="renderizaCasasModal(${i})" data-bs-target="#exampleModal">
                 ver casa
               </button>
               <!-- <a href="factura.html" class="btn btn-primary">Go somewhere</a> -->
@@ -63,29 +64,28 @@ obtenerPropiedades();
 }
 
 
-const renderizaVehiculosModal= () =>{  
-
-    document.getElementById("exampleModal1").innerHTML= "";
-    for( i=0; i<vehiculos.length ;i++){
-        document.getElementById("exampleModal1").innerHTML += 
+const renderizaCasasModal= (k) =>{  
+//`modal${k}`
+    document.getElementById("exampleModal").innerHTML= "";
+    var p= document.getElementById("idmod").value;
+        document.getElementById("exampleModal").innerHTML= 
         `
+        <div  class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <img src="assets/img/casa.jpg" class="card-img-top" alt="...">
+            <img  id="lolo${k}"src="${propiedades[1].urlImagen}" class="card-img-top" alt="...">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" onclick="reservarVehiculos()">alquilar Vehiculo</button>
           </div>
         </div>
+      </div>
    
         `
 
-    }
-
 }
-renderizaVehiculosModal();
