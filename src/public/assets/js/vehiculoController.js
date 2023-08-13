@@ -1,4 +1,16 @@
 vahiculos=[];
+let nomCliente= localStorage.getItem("email");
+
+
+const renderizaNombreUser= () =>{  
+
+    document.getElementById("nombreUsee").innerHTML= ""; 
+    document.getElementById("nombreUsee").innerHTML += 
+        `
+       ${ nomCliente}
+        `
+}
+renderizaNombreUser();
 console.log(localStorage.getItem("propiedad"));
 const obtenerVehiculos = async () => {
 	const respuesta = await fetch("http://localhost:3001/vehiculos", {

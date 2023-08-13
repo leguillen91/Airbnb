@@ -1,10 +1,21 @@
 
-
+let idCliente= localStorage.getItem("cliente");
+let nomCliente= localStorage.getItem("email");
 const reservarVehiculos=(o)=>{
     //propiedades[o].id;
     localStorage.setItem("propiedad", propiedades[o].id);
     window.location.href = "vehiculos.html";
 };
+
+const renderizaNombreUser= () =>{  
+
+    document.getElementById("nombreUser").innerHTML= ""; 
+    document.getElementById("nombreUser").innerHTML += 
+        `
+       ${ nomCliente}
+        `
+}
+renderizaNombreUser();
 
 
 const obtenerPropiedades = async () => {
