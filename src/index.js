@@ -5,6 +5,7 @@ const cors=require('cors');
 const bodyParser= require('body-parser');
 const personasRouters = require('./routes/personas.routes');
 const propiedadesRouters=require('./routes/propiedades.routes');
+const metodoPagoRouters = require('./routes/');
 const puerto=3001;
 
 
@@ -27,6 +28,7 @@ app.listen(puerto, () => {
 
 app.use('/personas', personasRouters);
 app.use('/propiedad', propiedadesRouters);
+app.use('/metodoPago', metodoPagoRouters);
 
 
 
