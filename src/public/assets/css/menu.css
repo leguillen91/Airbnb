@@ -114,3 +114,8 @@ main{
 .boton{
     text-align: right;
 }
+
+.imgCar {
+    width: 304px;
+    height: 250px;
+}

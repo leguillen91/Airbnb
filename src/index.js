@@ -3,7 +3,8 @@ const sql = require('mssql');
 const BD = require('./utils/database');
 const cors=require('cors');
 const bodyParser= require('body-parser');
-const personasRouters = require('./routes/personas.routes');
+const personasRaouter = require('./routes/personas.routes');
+const vehiculosRouters =require('./routes/vehiculos.routers');
 const propiedadesRouters=require('./routes/propiedades.routes');
 const metodoPagoRouters = require('./routes/');
 const puerto=3001;
@@ -26,7 +27,9 @@ app.listen(puerto, () => {
 });
 
 
-app.use('/personas', personasRouters);
+
+app.use('/personas', personasRaouter);
+app.use('/vehiculos', vehiculosRouters);
 app.use('/propiedad', propiedadesRouters);
 app.use('/metodoPago', metodoPagoRouters);
 

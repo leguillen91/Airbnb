@@ -27,7 +27,8 @@ const compararUsuarios=()=>{
     usuarios.forEach(element => {
         if((element.email == valorCorreo)&&(element.contraseña== valorContraseña)){
             // console.log('usuario aceptado');
-            // localStorage.setItem("cliente", element._id);
+             localStorage.setItem("cliente", element.id);
+             localStorage.setItem("email", element.email);
             window.location.href = "menu.html";
             // console.log('usuario aceptado');
         }
