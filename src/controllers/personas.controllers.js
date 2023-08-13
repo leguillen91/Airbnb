@@ -53,12 +53,12 @@ const insertarUsuario = async (req,res) =>{
     .input('dni', TYPES.VarChar, dni)
     .input('email', TYPES.VarChar, email)
     .input('contraseña', TYPES.VarChar, contraseña)
-    .input('idRol', TYPES.Int, 3)
+    // .input('idRol', TYPES.Int, 3)
     .query(`INSERT INTO usuario(
-        email, contraseña, dni, idRol
+        email, contraseña, dni
     )
     values(
-        @email, @contraseña, @dni, @idRol
+        @email, @contraseña, @dni
     )`
     );
     res.send('usuario insertado');
