@@ -1,6 +1,8 @@
 
 
-const reservarVehiculos=()=>{
+const reservarVehiculos=(o)=>{
+    //propiedades[o].id;
+    localStorage.setItem("propiedad", propiedades[o].id);
     window.location.href = "vehiculos.html";
 };
 
@@ -73,15 +75,18 @@ const renderizaCasasModal= (k) =>{
         <div  class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">${propiedades[k].nombre}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <img  id="lolo${k}"src="${propiedades[k].urlImagen}" class="card-img-top" alt="...">
+            <div> ${propiedades[k].descripcion}</div>
+            <div> Ubicada en: ${propiedades[k].colonia}, ${propiedades[k].calle}, numero de casa ${propiedades[k].numCasa} </div>
+            <div> Cuenta con ${propiedades[k].numeroCamas} camas, y parqueo para ${propiedades[k].capacidadParqueo} vehiculos </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="reservarVehiculos()">alquilar Vehiculo</button>
+            <button type="button" class="btn btn-primary" onclick="reservarVehiculos(${k})">alquilar Vehiculo</button>
           </div>
         </div>
       </div>

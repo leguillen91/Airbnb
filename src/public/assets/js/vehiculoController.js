@@ -1,5 +1,5 @@
 vahiculos=[];
-
+console.log(localStorage.getItem("propiedad"));
 const obtenerVehiculos = async () => {
 	const respuesta = await fetch("http://localhost:3001/vehiculos", {
 		method: "get",
