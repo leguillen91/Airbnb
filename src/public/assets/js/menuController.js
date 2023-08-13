@@ -12,7 +12,7 @@ const obtenerPropiedades = async () => {
 	propiedades = await respuesta.json();
 	console.log("propiedades", propiedades);
 	renderizarPropiedades();
-    renderizaCasasModal();
+   
 };
 
 obtenerPropiedades();
@@ -77,7 +77,7 @@ const renderizaCasasModal= (k) =>{
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <img  id="lolo${k}"src="${propiedades[1].urlImagen}" class="card-img-top" alt="...">
+            <img  id="lolo${k}"src="${propiedades[k].urlImagen}" class="card-img-top" alt="...">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
