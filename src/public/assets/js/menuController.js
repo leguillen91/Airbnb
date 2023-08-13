@@ -3,7 +3,7 @@ let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
 const reservarVehiculos=(o)=>{
     //propiedades[o].id;
-    localStorage.setItem("propiedad", propiedades[o].id);
+    localStorage.setItem("propiedad", JSON.stringify(propiedades[o]));
     window.location.href = "vehiculos.html";
 };
 
@@ -28,6 +28,8 @@ const obtenerPropiedades = async () => {
    
 };
 
+
+// renderizarPropiedad();
 obtenerPropiedades();
 
  const renderizarPropiedades= () =>{  
@@ -108,4 +110,6 @@ const renderizaCasasModal= (k) =>{
 
 }
 
+
 {/* <button type="button" class="btn btn-primary" onclick="reservarVehiculos(${k})">alquilar Vehiculo</button> */}
+
