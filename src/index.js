@@ -6,7 +6,7 @@ const bodyParser= require('body-parser');
 const personasRaouter = require('./routes/personas.routes');
 const vehiculosRouters =require('./routes/vehiculos.routers');
 const propiedadesRouters=require('./routes/propiedades.routes');
-const metodoPagoRouters = require('./routes/');
+const metodoPagoRouters = require('./routes/metodoPago.routes');
 const puerto=3001;
 
 
