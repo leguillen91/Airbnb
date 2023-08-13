@@ -65,9 +65,14 @@ nav img{
 main{
     padding-top: 90px;
     padding-bottom: 30px;
+    display: flex;
 }
 
 .imgCar{
     width: 259px;
     height: 183px;
+}
+
+.btn-eliminar{
+    float: right;
 }

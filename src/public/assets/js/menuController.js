@@ -97,7 +97,9 @@ const renderizaCasasModal= (k) =>{
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="reservarVehiculos(${k})">alquilar Vehiculo</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCalendario">
+                reservar
+            </button>
           </div>
         </div>
       </div>
@@ -105,3 +107,5 @@ const renderizaCasasModal= (k) =>{
         `
 
 }
+
+{/* <button type="button" class="btn btn-primary" onclick="reservarVehiculos(${k})">alquilar Vehiculo</button> */}

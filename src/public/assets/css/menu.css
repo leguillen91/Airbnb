@@ -119,3 +119,9 @@ main{
     width: 304px;
     height: 250px;
 }
+
+/* ---------------Modal del calendario */
+
+.input-calendario{
+    width: 100%;
+}
