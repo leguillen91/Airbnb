@@ -1,9 +1,9 @@
 
 
 const conexionBD={
-    
-user:'wei',
-password:'123',
+
+user:'usuario',
+password:'12345',
 server:'localhost',
 database:'AIRBNB',
 options: {
