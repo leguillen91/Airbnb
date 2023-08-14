@@ -163,6 +163,8 @@ const calcularPresioEstadia = (n) =>{
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+    let uu= document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche;
+    localStorage.setItem("ppreee", uu);
    // let samuell= document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
      mun=n;
     // console.log(propiedades[n].id);

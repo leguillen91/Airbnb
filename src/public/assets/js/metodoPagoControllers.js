@@ -1,6 +1,8 @@
 
 var metodos='';
-
+let nomCrrr= localStorage.getItem("ppreee");
+console.log(nomCrrr);
+//localStorage.setItem("ppreee", uu);
 
 const obtenerMetodoPago = async () => {
 	const respuesta = await fetch("http://localhost:3001/metodoPago", {
@@ -54,7 +56,7 @@ checkbox1.addEventListener("change", function() {
     checkbox2.checked = false;
     console.log("50% de la reserva");
 
-    document.getElementById('tao').innerHTML=`Total a Pagar es: 50`; 
+    document.getElementById('tao').innerHTML=`Total a Pagar es: ${nomCrrr/2}`; 
   }
 });
 
@@ -62,6 +64,22 @@ checkbox2.addEventListener("change", function() {
   if (checkbox2.checked) {
     checkbox1.checked = false;
     console.log("total de la reserva");
-    document.getElementById('tao').innerHTML=`Total a Pagar es: 100`; 
+    document.getElementById('tao').innerHTML=`Total a Pagar es: ${nomCrrr}`; 
   }
 });
+
+checkbox1.checked = false;
+checkbox2.checked = false;
+
+
+
+
+
+const cambiar= () =>{  
+    if ((checkbox1.checked == false) && (checkbox2.checked == false)){
+        console.log("seleccion el porcentaje");
+    }
+    
+    else {window.location.href = "factura.html";}
+
+}
