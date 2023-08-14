@@ -163,7 +163,8 @@ const calcularPresioEstadia = (n) =>{
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
-   mun=m;
+   // let samuell= document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+     mun=n;
     // console.log(propiedades[n].id);
   }else{
     inputFf.value = Finicio;
@@ -190,6 +191,9 @@ const obtenerValoresReserva = (m) => {
   // console.log(document.querySelector('#nombre').value);
   if ((fechaCheckIn != "")&&(fechaCheckOut != "")&&(cantidadPersonas != "")){
       insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+  
+     // console.log(samuell);
+
 
     // crearTelefono(telefono)
       // window.location.href = "menu.html";
