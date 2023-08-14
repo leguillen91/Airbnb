@@ -127,7 +127,7 @@ const renderizaCasasModal= (k) =>{
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCalendario" onclick="obtenerValoresReserva(${k})">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="obtenerValoresReserva(${k})">
                 reservar
             </button>
           </div>
@@ -139,7 +139,9 @@ const renderizaCasasModal= (k) =>{
         inputFI = document.getElementById('Finicio');
         inputFf = document.getElementById('Ffinal');
         var fRestricion = new Date();
-        fRestricion.setDate(fRestricion.getDate() - 1);
+        console.log(fRestricion.getDate())
+        fRestricion.setDate(fRestricion.getDate()+1);
+        console.log(fRestricion.getDate())
         inputFI.setAttribute("min", fRestricion.toISOString().split('T')[0]);
 }
 
@@ -158,7 +160,7 @@ const calcularPresioEstadia = (n) =>{
     let nuevoFfinal = new Date(Ffinal);
     let difmilisegundos = Math.abs(nuevoFinicio - nuevoFfinal);
     let milisegundosDia = 24 * 60* 60* 1000;
-    let difDias = (difmilisegundos/milisegundosDia) + 1;
+    let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
     // console.log(propiedades[n].id);
   }else{
@@ -170,6 +172,10 @@ const calcularPresioEstadia = (n) =>{
 
 const irAPagina = () =>{
   window.location.href = "vehiculos.html";
+}
+
+const irAPago = () =>{
+  window.location.href = "pago.html";
 }
 
 const obtenerValoresReserva = (m) => {

@@ -110,6 +110,29 @@
         </div>
       </div>
 
+      <!-- Modal estatico-->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- data-bs-dismiss="modal" -->
+              <!-- modal -->
+              <!-- onclick="obtenerValoresReserva(${k})" -->
+              Desea reservar algun vehiculo?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="irAPago()">NO, solo Casa</button>
+              <button type="button" class="btn btn-primary" onclick="irAPagina()">Si, reservar vehiculo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
       <!-- Modal calendario-->
       <div class="modal fade" id="modalCalendario" tabindex="-1" aria-labelledby="modalCalendarioLabel" aria-hidden="true">
         <div class="modal-dialog">
