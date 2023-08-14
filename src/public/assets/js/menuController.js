@@ -1,8 +1,9 @@
-
+let propiedades = [];
 let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
 var inputFI;
 var inputFf;
+
 
 const reservarVehiculos=(o)=>{
     //propiedades[o].id;
@@ -103,16 +104,20 @@ const renderizaCasasModal= (k) =>{
                 <div class="img-calendario">
                   <div>
                       <label for="">Fecha inicio</label>
-                      <input id="Finicio" type="date" class="input-calendario" onchange="calcularPresioEstadia()">
+                      <input id="Finicio" type="date" class="input-calendario" onchange="calcularPresioEstadia(${k})">
                   </div>
                   <div>
                     <label for="">Fecha fin</label>
-                    <input disabled id="Ffinal" type="date" class="input-calendario" onchange="calcularPresioEstadia()">
+                    <input disabled id="Ffinal" type="date" class="input-calendario" onchange="calcularPresioEstadia(${k})">
                   </div>
                 </div>
                 <div>
                   <label for="">Cantidad de Personas</label>
-                  <input type="number" class="input-calendario">
+                  <input id="cantidadPers" type="number" class="input-calendario">
+                </div>
+                <div>
+                  <label for="">Total Precio Estadia</label>
+                  <input disabled id="totalEstadia" type="text" class="input-calendario">
                 </div>
               </div>
             </div>
@@ -122,7 +127,7 @@ const renderizaCasasModal= (k) =>{
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCalendario">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCalendario" onclick="obtenerValoresReserva(${k})">
                 reservar
             </button>
           </div>
@@ -138,13 +143,13 @@ const renderizaCasasModal= (k) =>{
         inputFI.setAttribute("min", fRestricion.toISOString().split('T')[0]);
 }
 
-const calcularPresioEstadia = () =>{
+const calcularPresioEstadia = (n) =>{
   let Finicio = document.getElementById('Finicio').value;
   let Ffinal = document.getElementById('Ffinal').value;
+  inputFf.setAttribute("min", Finicio)
   if (Finicio != '' && Ffinal == ''){
     inputFf.removeAttribute('disabled');
     Ffinal = Finicio;
-    inputFf.setAttribute("min", Finicio)
     // console.log(Finicio)
   }
   // console.log(Ffinal)
@@ -154,14 +159,53 @@ const calcularPresioEstadia = () =>{
     let difmilisegundos = Math.abs(nuevoFinicio - nuevoFfinal);
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia) + 1;
-    // console.log(difDias);
+    document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+    // console.log(propiedades[n].id);
   }else{
-    console.log('No puedes ingresar fecha final antes que la fecha inicio')
+    inputFf.value = Finicio;
   }
 }
 
+
+
 const irAPagina = () =>{
   window.location.href = "vehiculos.html";
+}
+
+const obtenerValoresReserva = (m) => {
+  let fechaCheckIn 			=   document.querySelector('#Finicio').value;
+  let fechaCheckOut 		=   document.querySelector('#Ffinal').value;
+  let cantidadPersonas 	=   document.querySelector('#cantidadPers').value;
+  let idPropiedad 		  =   propiedades[m].id;
+  let idHuesped 	      =   idCliente;
+  // console.log(document.querySelector('#nombre').value);
+  if ((fechaCheckIn != "")&&(fechaCheckOut != "")&&(cantidadPersonas != "")){
+      insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+
+    // crearTelefono(telefono)
+      // window.location.href = "menu.html";
+  }else{
+      console.log('Uno de los datos no ha sido llenado');
+  }
+}
+
+const insertarReserva = async (fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped) =>{
+  await fetch(`http://localhost:3001/reservas`,
+		{
+			method: "post",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				fechaCheckIn: fechaCheckIn,
+				fechaCheckOut: fechaCheckOut,
+				cantidadPersonas: cantidadPersonas,
+				idPropiedad: idPropiedad,
+				idHuesped: idHuesped
+			}),
+		}
+	);
 }
 
 

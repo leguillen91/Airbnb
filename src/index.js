@@ -7,6 +7,7 @@ const personasRaouter = require('./routes/personas.routes');
 const vehiculosRouters =require('./routes/vehiculos.routers');
 const propiedadesRouters=require('./routes/propiedades.routes');
 const metodoPagoRouters = require('./routes/metodoPago.routes');
+const reservasRouters = require('./routes/reservas.routers');
 const puerto=3001;
 
 
@@ -32,6 +33,7 @@ app.use('/personas', personasRaouter);
 app.use('/vehiculos', vehiculosRouters);
 app.use('/propiedad', propiedadesRouters);
 app.use('/metodoPago', metodoPagoRouters);
+app.use('/reservas', reservasRouters);
 
 
 
