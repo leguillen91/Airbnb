@@ -148,7 +148,7 @@ const calcularPresioEstadia = () =>{
     // console.log(Finicio)
   }
   // console.log(Ffinal)
-  if (Ffinal > Finicio){
+  if (Ffinal >= Finicio){
     let nuevoFinicio = new Date(Finicio);
     let nuevoFfinal = new Date(Ffinal);
     let difmilisegundos = Math.abs(nuevoFinicio - nuevoFfinal);
@@ -158,6 +158,10 @@ const calcularPresioEstadia = () =>{
   }else{
     console.log('No puedes ingresar fecha final antes que la fecha inicio')
   }
+}
+
+const irAPagina = () =>{
+  window.location.href = "vehiculos.html";
 }
 
 
