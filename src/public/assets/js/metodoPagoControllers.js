@@ -23,3 +23,9 @@ function listaMetodosPago() {
     }
     
 }
+
+function mostrarTarjetas() {
+
+    document.getElementById('contenedor-principal').style.display='block';
+    
+}
