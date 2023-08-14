@@ -14,7 +14,7 @@
         <div class="row align-items-stretch">
 
             <select class="form-select" id="metodoActual" aria-label="Default select example">
-               
+                
               
               </select>
 
@@ -26,8 +26,68 @@
        
     </div>
 
+
+    <section class="contenedor-principal">
+
+        <div class="contenedor-tarjetas">
+
+            <div> <img src="../public/assets/img/visa.png" alt=""></div>
+            <div> <img src="../public/assets/img/mastercard.png" alt=""></div>
+            <div> <img src="../public/assets/img/paypal.png" alt=""></div>
+
+        </div>
+
+        <div class="contenedor-formulario" >
+
+            <form>
+            
+            <div class="form-group">
+
+                <label for="nombreTarjeta" class="form-label">Nombre de Tarjeta</label>
+                <input type="text" class="form-control" id="nombreTarjeta" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+
+                <label for="numeroTarjeta" class="form-label">Nunmero de Tarjeta</label>
+                <input type="text" class="form-control" id="numeroTarjeta" placeholder="0000-0000-0000-0000">
+            </div>
+
+            <div class="contenedor-fecha">
+
+                
+            <div class="form-group">
+
+                <label for="expira" class="form-label">Expira</label>
+                <input type="text" class="form-control" id="expira" placeholder="">
+            </div>
+
+            <div class="form-group">
+
+                <label for="mes" class="form-label">Mes</label>
+                <input type="text" class="form-control" id="mes" placeholder="">
+            </div>
+
+            <div class="form-group">
+
+                <label for="cvv" class="form-label">Cvv</label>
+                <input type="text" class="form-control" id="cvv" placeholder="">
+            </div>
+
+
+
+            </div>
+
+        </form>
+
+        </div>
+
+
+
+    </section>
+
     <div class="mt-5">
-    <button type="button" class="btn btn-danger">Cancelar</button>
+    <button type="button" class="btn btn-danger ">Cancelar</button>
     <button type="button" class="btn btn-primary">Pagar</button>
 </div>
     <script src="/src/public/assets/js/metodoPagoControllers.js"></script>

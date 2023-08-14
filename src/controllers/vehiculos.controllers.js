@@ -9,6 +9,7 @@ const obtenerVehiculos = async (req, res) =>{
 }
 
 
+
 exports.obtenerVehiculos = obtenerVehiculos;
 
 
@@ -18,6 +19,8 @@ const obtenerTipoVehoculo = async (req, res) =>{
     // console.log(result.recordset);
     res.send(result.recordset);
 }
+
+
 
 exports.obtenerTipoVehoculos = obtenerTipoVehoculo;
 

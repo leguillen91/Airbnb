@@ -61,7 +61,3 @@ exports.conector = conector;
 
 // module.exports = conector
 
-
-
-
-
