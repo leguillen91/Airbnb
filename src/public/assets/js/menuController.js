@@ -1,6 +1,9 @@
 
 let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
+var inputFI;
+var inputFf;
+
 const reservarVehiculos=(o)=>{
     //propiedades[o].id;
     localStorage.setItem("propiedad", JSON.stringify(propiedades[o]));
@@ -81,18 +84,38 @@ obtenerPropiedades();
 
 const renderizaCasasModal= (k) =>{  
 //`modal${k}`
+    
+
     document.getElementById("exampleModal").innerHTML= "";
     var p= document.getElementById("idmod").value;
         document.getElementById("exampleModal").innerHTML= 
         `
-        <div  class="modal-dialog">
+        <div  class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">${propiedades[k].nombre}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <img  id="lolo${k}"src="${propiedades[k].urlImagen}" class="card-img-top" alt="...">
+            <div class="img-calendario">
+              <img  id="lolo${k}"src="${propiedades[k].urlImagen}" class="card-img-top imgModal" alt="...">
+              <div>
+                <div class="img-calendario">
+                  <div>
+                      <label for="">Fecha inicio</label>
+                      <input id="Finicio" type="date" class="input-calendario" onchange="calcularPresioEstadia()">
+                  </div>
+                  <div>
+                    <label for="">Fecha fin</label>
+                    <input disabled id="Ffinal" type="date" class="input-calendario" onchange="calcularPresioEstadia()">
+                  </div>
+                </div>
+                <div>
+                  <label for="">Cantidad de Personas</label>
+                  <input type="number" class="input-calendario">
+                </div>
+              </div>
+            </div>
             <div> ${propiedades[k].descripcion}</div>
             <div> Ubicada en: ${propiedades[k].colonia}, ${propiedades[k].calle}, numero de casa ${propiedades[k].numCasa} </div>
             <div> Cuenta con ${propiedades[k].numeroCamas} camas, y parqueo para ${propiedades[k].capacidadParqueo} vehiculos </div>
@@ -108,6 +131,33 @@ const renderizaCasasModal= (k) =>{
    
         `
 
+        inputFI = document.getElementById('Finicio');
+        inputFf = document.getElementById('Ffinal');
+        var fRestricion = new Date();
+        fRestricion.setDate(fRestricion.getDate() - 1);
+        inputFI.setAttribute("min", fRestricion.toISOString().split('T')[0]);
+}
+
+const calcularPresioEstadia = () =>{
+  let Finicio = document.getElementById('Finicio').value;
+  let Ffinal = document.getElementById('Ffinal').value;
+  if (Finicio != '' && Ffinal == ''){
+    inputFf.removeAttribute('disabled');
+    Ffinal = Finicio;
+    inputFf.setAttribute("min", Finicio)
+    // console.log(Finicio)
+  }
+  // console.log(Ffinal)
+  if (Ffinal > Finicio){
+    let nuevoFinicio = new Date(Finicio);
+    let nuevoFfinal = new Date(Ffinal);
+    let difmilisegundos = Math.abs(nuevoFinicio - nuevoFfinal);
+    let milisegundosDia = 24 * 60* 60* 1000;
+    let difDias = (difmilisegundos/milisegundosDia) + 1;
+    // console.log(difDias);
+  }else{
+    console.log('No puedes ingresar fecha final antes que la fecha inicio')
+  }
 }
 
 

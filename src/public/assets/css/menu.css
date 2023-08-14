@@ -121,7 +121,20 @@ main{
 }
 
 /* ---------------Modal del calendario */
+.imgModal{
+    width: 500px;
+    margin-right: 20px;
+}
+
+#exampleModal{
+    /* width: 900px; */
+}
+
+.img-calendario{
+    display: flex;
+}
 
 .input-calendario{
     width: 100%;
+    background-color: rgb(241, 238, 238);
 }
