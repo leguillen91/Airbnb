@@ -139,7 +139,9 @@ const renderizaCasasModal= (k) =>{
         inputFI = document.getElementById('Finicio');
         inputFf = document.getElementById('Ffinal');
         var fRestricion = new Date();
-        fRestricion.setDate(fRestricion.getDate() - 1);
+        console.log(fRestricion.getDate())
+        fRestricion.setDate(fRestricion.getDate()+1);
+        console.log(fRestricion.getDate())
         inputFI.setAttribute("min", fRestricion.toISOString().split('T')[0]);
 }
 
