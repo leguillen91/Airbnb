@@ -3,6 +3,7 @@ let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
 var inputFI;
 var inputFf;
+let num;
 
 
 const reservarVehiculos=(o)=>{
@@ -162,6 +163,7 @@ const calcularPresioEstadia = (n) =>{
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+   mun=m;
     // console.log(propiedades[n].id);
   }else{
     inputFf.value = Finicio;
@@ -171,6 +173,7 @@ const calcularPresioEstadia = (n) =>{
 
 
 const irAPagina = () =>{
+  reservarVehiculos(num);
   window.location.href = "vehiculos.html";
 }
 
