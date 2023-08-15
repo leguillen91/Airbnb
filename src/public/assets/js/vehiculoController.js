@@ -1,6 +1,11 @@
-veheiculos=[];
+let vehiculos=[];
+let ListaVehiculos=[];
 let nomCliente= localStorage.getItem("email");
-
+let fechaCheckIn1 = localStorage.getItem("fechaCheckIn")
+let idPropiedad1 = localStorage.getItem("idPropiedad")
+let idHuesped1 = localStorage.getItem("idHuesped")
+let difDias1 = localStorage.getItem("difDias")
+let idReserva;
 
 const renderizaNombreUser= () =>{  
 
@@ -11,7 +16,28 @@ const renderizaNombreUser= () =>{
         `
 }
 renderizaNombreUser();
+
+const obtenerReserva = async () => {
+    const respuesta = await fetch(`http://localhost:3001/reservas/casa`,{
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fechaCheckIn1: fechaCheckIn1,
+            idPropiedad1: idPropiedad1,
+            idHuesped1: idHuesped1,
+        }),
+    });
+    idReserva = respuesta;
+    console.log('idReserva', idReserva);
+}
+
+obtenerReserva();
+
 console.log(localStorage.getItem("propiedad"));
+
 const obtenerVehiculos = async () => {
 	const respuesta = await fetch("http://localhost:3001/vehiculos", {
 		method: "get",
@@ -19,7 +45,7 @@ const obtenerVehiculos = async () => {
 	vehiculos = await respuesta.json();
 	console.log("vehiculos", vehiculos);
     renderizaVehiculos();
-};
+}
 
 
 
@@ -46,6 +72,23 @@ const renderizaVehiculos= () =>{
 
 }
 obtenerVehiculos();
+
+const agregarListaVehiculos=(j)=>{
+    // let lista = {
+    //     idVehiculo: '',
+    //     marca:
+    //     modelo:
+
+    // }
+}
+
+const renderizarListaVehiculos=()=>{
+    document.getElementById('listaCarros').innerHTML="";
+    document.getElementById('listaCarros').innerHTML+=
+    `
+
+    `;
+}
 
 const pasarFactura=(m)=>{
     //propiedades[o].id;

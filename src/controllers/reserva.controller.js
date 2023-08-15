@@ -26,3 +26,25 @@ const insertarRerserva = async (req,res) =>{
 }
 
 exports.insertarRerserva = insertarRerserva
+
+const obtenerIdReservaCasa = async (req, res) =>{
+    const {
+        fechaCheckIn1,
+        idPropiedad1,
+        idHuesped1} = req.body
+    const pool = await getConection.conector();
+    const result = await pool
+    .request()
+    .input('fechaCheckIn', TYPES.Date, fechaCheckIn1)
+    .input('idPropiedad', TYPES.Int, idPropiedad1)
+    .input('idHuesped', TYPES.Int, idHuesped1)
+    .query(` select id from reserva where FechaCheckIn = @fechaCheckIn
+            and idPropiedad = @idPropiedad
+            and idHuesped = @idHuesped`
+        );
+//    console.log('Usuario creado exitosamente');
+    const idencontrado = result.recordset[0]
+   res.send(idencontrado);
+}
+
+exports.obtenerIdReservaCasa = obtenerIdReservaCasa

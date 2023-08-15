@@ -3,6 +3,7 @@ let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
 var inputFI;
 var inputFf;
+let num;
 
 
 const reservarVehiculos=(o)=>{
@@ -113,7 +114,7 @@ const renderizaCasasModal= (k) =>{
                 </div>
                 <div>
                   <label for="">Cantidad de Personas</label>
-                  <input id="cantidadPers" type="number" class="input-calendario">
+                  <input id="cantidadPers" type="number" class="input-calendario" oninput="calcularPresioEstadia(${k})">
                 </div>
                 <div>
                   <label for="">Total Precio Estadia</label>
@@ -127,7 +128,7 @@ const renderizaCasasModal= (k) =>{
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="obtenerValoresReserva(${k})">
+            <button disabled id="btnReservar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="obtenerValoresReserva(${k})">
                 reservar
             </button>
           </div>
@@ -162,16 +163,23 @@ const calcularPresioEstadia = (n) =>{
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+    num = n;
+    localStorage.setItem("difDias", difDias)
     // console.log(propiedades[n].id);
   }else{
     inputFf.value = Finicio;
+  }
+
+  if (document.querySelector('#Finicio').value!='' && document.querySelector('#Ffinal').value!='' && document.querySelector('#cantidadPers').value!=''){
+    document.getElementById('btnReservar').removeAttribute('disabled')
   }
 }
 
 
 
 const irAPagina = () =>{
-  window.location.href = "vehiculos.html";
+  reservarVehiculos(num);
+  // window.location.href = "vehiculos.html";
 }
 
 const irAPago = () =>{
@@ -187,6 +195,9 @@ const obtenerValoresReserva = (m) => {
   // console.log(document.querySelector('#nombre').value);
   if ((fechaCheckIn != "")&&(fechaCheckOut != "")&&(cantidadPersonas != "")){
       insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+      localStorage.setItem("fechaCheckIn", fechaCheckIn)
+      localStorage.setItem("idPropiedad", idPropiedad)
+      localStorage.setItem("idHuesped", idHuesped)
 
     // crearTelefono(telefono)
       // window.location.href = "menu.html";
