@@ -24,7 +24,7 @@ body {
     height: 500px;
 
 }
-#Factura{
+.Factura{
     background-color:white;
     max-width:540px;
     padding: 20px;

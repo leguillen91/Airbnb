@@ -1,6 +1,9 @@
 let propiedades = [];
 let idCliente= localStorage.getItem("cliente");
 let nomCliente= localStorage.getItem("email");
+let nomClienteCompleto= localStorage.getItem("clientecomleto");
+let yy=JSON.parse(nomClienteCompleto)
+console.log(yy);
 var inputFI;
 var inputFf;
 let num;
@@ -30,6 +33,7 @@ const obtenerPropiedades = async () => {
 	propiedades = await respuesta.json();
 	console.log("propiedades", propiedades);
 	renderizarPropiedades();
+ 
    
 };
 

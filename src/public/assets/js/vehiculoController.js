@@ -1,6 +1,7 @@
 
 let vehiculos=[];
 let ListaVehiculos=[];
+let uiui=[];
 
 let nomCliente= localStorage.getItem("email");
 let fechaCheckIn1 = localStorage.getItem("fechaCheckIn")
@@ -65,7 +66,7 @@ const renderizaVehiculos= () =>{
             <h5 value="${vehiculos[i].idModelo}" class="card-title text-black">${vehiculos[i].marca} ${vehiculos[i].modelo}</h5>
             <p class="card-text text-black">${vehiculos[i].tipoVehiculo}</p>
             <p class="card-text text-black">Precio por día: L.${vehiculos[i].precioDia}</p>
-            <button onclick="agregarVehiculo(${vehiculos[i].id})" type="button" class="btn btn-primary">Agregar</button>
+            <button onclick="agregarVehiculo(${i})" type="button" class="btn btn-primary">Agregar</button>
           </div>
         </div>
     </div>
@@ -77,22 +78,45 @@ const renderizaVehiculos= () =>{
 obtenerVehiculos();
 
 
-const agregarListaVehiculos=(j)=>{
-    // let lista = {
-    //     idVehiculo: '',
-    //     marca:
-    //     modelo:
 
-    // }
+
+const agregarVehiculo=(j)=>{
+  //  JSON.stringify(propiedades[o])
+  //  uiui.push(JSON.stringify(veheiculoSeleccionado[j]));
+  const objeto1 = { nombre:  `${veheiculoSeleccionado[j].marca}`, precio:  `${veheiculoSeleccionado[j].precioDia}`};
+  uiui.push(objeto1);
+  let poo=uiui.length;
+  localStorage.setItem("begii", poo);
+
+    console.log(poo);
+    renderizarListaVehiculos();
 }
 
 const renderizarListaVehiculos=()=>{
-    document.getElementById('listaCarros').innerHTML="";
-    document.getElementById('listaCarros').innerHTML+=
-    `
-
-    `;
+    var jeyes=0;
+    document.getElementById("listaCarros").innerHTML="";
+    for( i=0; i<uiui.length ;i++){
+        t=parseFloat(uiui[i].precio);
+       jeyes+=t;
+        document.getElementById("listaCarros").innerHTML+=
+        `
+        <div class="card-footer">
+             ${uiui[i].nombre} valor: ${uiui[i].precio}
+            </div>
+    
+        `
+        document.getElementById("prex").innerHTML=` Valor Total: ${jeyes} 
+        <button id="mz" type="button" value=${jeyes} class="btn btn-primary" onclick="irAPagina()">Pagar</button>`
+    }
+   ;
 }
+
+const irAPagina=()=>{
+    localStorage.setItem("totaVehiculo", document.getElementById("mz").value);
+    window.location.href = "pago.html";
+    
+    console.log(document.getElementById("mz").value);
+};
 
 
 const pasarFactura=(m)=>{

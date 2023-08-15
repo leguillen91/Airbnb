@@ -1,7 +1,10 @@
 
 var metodos='';
 let nomCrrr= localStorage.getItem("ppreee");
+let norrr= localStorage.getItem("totaVehiculo");
+
 console.log(nomCrrr);
+console.log(norrr);
 //localStorage.setItem("ppreee", uu);
 
 const obtenerMetodoPago = async () => {
@@ -55,16 +58,23 @@ checkbox1.addEventListener("change", function() {
   if (checkbox1.checked) {
     checkbox2.checked = false;
     console.log("50% de la reserva");
-
-    document.getElementById('tao').innerHTML=`Total a Pagar es: ${nomCrrr/2}`; 
-  }
+    
+ }
+    wee=(parseFloat(nomCrrr))+(parseFloat(norrr));
+    document.getElementById('tao').innerHTML=`Total a Pagar es: ${wee/2}`; 
+  
 });
 
 checkbox2.addEventListener("change", function() {
   if (checkbox2.checked) {
+    ;
+   
     checkbox1.checked = false;
     console.log("total de la reserva");
-    document.getElementById('tao').innerHTML=`Total a Pagar es: ${nomCrrr}`; 
+    if (norrr!==""){
+        wee=(parseFloat(nomCrrr))+(parseFloat(norrr));
+    document.getElementById('tao').innerHTML=`Total a Pagar es: ${wee}`; }
+    else{document.getElementById('tao').innerHTML=`Total a Pagar es: ${nomCrrr}`}
   }
 });
 
