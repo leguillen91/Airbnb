@@ -48,3 +48,12 @@ const obtenerIdReservaCasa = async (req, res) =>{
 }
 
 exports.obtenerIdReservaCasa = obtenerIdReservaCasa
+
+const obtenerredddd = async (req, res) =>{
+    const pool = await getConection.conector();
+    const result = await pool.request().query('SELECT TOP 1 * FROM reserva ORDER BY id DESC');
+    // console.log(result.recordset);
+    res.send(result.recordset);
+}
+
+exports.obtenerredddd = obtenerredddd;

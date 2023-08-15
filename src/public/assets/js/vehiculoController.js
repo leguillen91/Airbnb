@@ -10,6 +10,9 @@ let idHuesped1 = localStorage.getItem("idHuesped")
 let difDias1 = localStorage.getItem("difDias")
 let idReserva;
 
+// console.log(localStorage.getItem("qqqqq"));
+
+
 const renderizaNombreUser= () =>{  
 
     document.getElementById("nombreUsee").innerHTML= ""; 
@@ -161,6 +164,17 @@ const obtenerTipoVe = async () => {
 };
 
 obtenerTipoVe();
+
+const obtenerrrrrr = async () => {
+	const respuesta = await fetch("http://localhost:3001/reservas/casass", {
+		method: "get",
+	});
+	metodosrrrr = await respuesta.json();
+    console.log("Metoress", metodosrrrr);
+   // listaMetodosPago();
+};
+
+obtenerrrrrr();
 
 
   

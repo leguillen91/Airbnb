@@ -208,7 +208,8 @@ const obtenerValoresReserva = (m) => {
   let idHuesped 	      =   idCliente;
   // console.log(document.querySelector('#nombre').value);
   if ((fechaCheckIn != "")&&(fechaCheckOut != "")&&(cantidadPersonas != "")){
-      insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+      //insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+     // localStorage.setItem("qqqqq", JSON.stringify(insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped)));
 
       localStorage.setItem("fechaCheckIn", fechaCheckIn)
       localStorage.setItem("idPropiedad", idPropiedad)

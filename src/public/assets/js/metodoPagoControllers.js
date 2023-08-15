@@ -93,3 +93,14 @@ const cambiar= () =>{
     else {window.location.href = "factura.html";}
 
 }
+
+const obtenerrrrrr = async () => {
+	const respuesta = await fetch("http://localhost:3001/reservas/casass", {
+		method: "get",
+	});
+	metodosrrrr = await respuesta.json();
+    console.log("Metoress", metodosrrrr);
+   // listaMetodosPago();
+};
+
+obtenerrrrrr();
