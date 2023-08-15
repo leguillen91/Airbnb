@@ -1,5 +1,7 @@
+
 let vehiculos=[];
 let ListaVehiculos=[];
+
 let nomCliente= localStorage.getItem("email");
 let fechaCheckIn1 = localStorage.getItem("fechaCheckIn")
 let idPropiedad1 = localStorage.getItem("idPropiedad")
@@ -43,6 +45,7 @@ const obtenerVehiculos = async () => {
 		method: "get",
 	});
 	vehiculos = await respuesta.json();
+    veheiculoSeleccionado=vehiculos;
 	console.log("vehiculos", vehiculos);
     renderizaVehiculos();
 }
@@ -62,7 +65,7 @@ const renderizaVehiculos= () =>{
             <h5 value="${vehiculos[i].idModelo}" class="card-title text-black">${vehiculos[i].marca} ${vehiculos[i].modelo}</h5>
             <p class="card-text text-black">${vehiculos[i].tipoVehiculo}</p>
             <p class="card-text text-black">Precio por día: L.${vehiculos[i].precioDia}</p>
-            <button onclick="pasarFactura(${i})" type="button" class="btn btn-primary">Agregar</button>
+            <button onclick="agregarVehiculo(${vehiculos[i].id})" type="button" class="btn btn-primary">Agregar</button>
           </div>
         </div>
     </div>
@@ -72,6 +75,7 @@ const renderizaVehiculos= () =>{
 
 }
 obtenerVehiculos();
+
 
 const agregarListaVehiculos=(j)=>{
     // let lista = {
@@ -90,11 +94,14 @@ const renderizarListaVehiculos=()=>{
     `;
 }
 
+
 const pasarFactura=(m)=>{
     //propiedades[o].id;
     localStorage.setItem("vehiculo", vehiculos[m]);
-    window.location.href = "factura.html";
+   // window.location.href = "factura.html";
 };
+
+
 
 
 const obtenerMarca = async () => {
@@ -129,3 +136,10 @@ const obtenerTipoVe = async () => {
 };
 
 obtenerTipoVe();
+
+
+  
+
+
+
+

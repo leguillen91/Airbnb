@@ -163,8 +163,14 @@ const calcularPresioEstadia = (n) =>{
     let milisegundosDia = 24 * 60* 60* 1000;
     let difDias = (difmilisegundos/milisegundosDia);
     document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+
     num = n;
     localStorage.setItem("difDias", difDias)
+
+    let uu= document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche;
+    localStorage.setItem("ppreee", uu);
+   // let samuell= document.getElementById('totalEstadia').value = difDias*propiedades[n].precioPorNoche +" Lps";
+
     // console.log(propiedades[n].id);
   }else{
     inputFf.value = Finicio;
@@ -179,7 +185,11 @@ const calcularPresioEstadia = (n) =>{
 
 const irAPagina = () =>{
   reservarVehiculos(num);
+
   // window.location.href = "vehiculos.html";
+
+  window.location.href = "vehiculos.html";
+
 }
 
 const irAPago = () =>{
@@ -195,9 +205,15 @@ const obtenerValoresReserva = (m) => {
   // console.log(document.querySelector('#nombre').value);
   if ((fechaCheckIn != "")&&(fechaCheckOut != "")&&(cantidadPersonas != "")){
       insertarReserva(fechaCheckIn, fechaCheckOut, cantidadPersonas, idPropiedad, idHuesped);
+
       localStorage.setItem("fechaCheckIn", fechaCheckIn)
       localStorage.setItem("idPropiedad", idPropiedad)
       localStorage.setItem("idHuesped", idHuesped)
+
+  
+     // console.log(samuell);
+
+
 
     // crearTelefono(telefono)
       // window.location.href = "menu.html";
