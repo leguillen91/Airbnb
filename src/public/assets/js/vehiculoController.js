@@ -126,6 +126,7 @@ const obtenerModelo = async () => {
 
 obtenerModelo();
 
+
 const obtenerTipoVe = async () => {
 	const respuesta = await fetch("http://localhost:3001/vehiculos/modelo", {
 		method: "get",
